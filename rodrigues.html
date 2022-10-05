@@ -1,0 +1,43 @@
+<!--Programmer: Chris Tralie!-->
+<!--Purpose: Front end point chooser / debugger for angle function!-->
+<html>
+<head>
+  <meta charset=utf-8></meta>
+  <script src = "gl-matrix-min.js"></script>
+  <script src = "plotly.min.js"></script>
+  <script src = "dat.gui.min.js"></script>
+  <script src = "geomprimitives.js"></script>
+  <script src = "guitools.js"></script>
+  <script src = "anglefunctions.js"></script>
+  
+</head>
+<body>
+
+<h2><a name = "angle">Rodrigues's Rotation Formula</a></h2>
+<h3>by Chris Tralie</h3>
+
+<P>
+  Recall that the formula to rotate a vector <b>v</b> around an axis <b>k</b> by an angle of <b>&theta;</b> is
+</P>
+
+<div style="width:100px;">
+<h3>
+  \[ \cos(\theta) \vec{v} + (1 - \cos(\theta))(\vec{k} \cdot \vec{v}) \vec{k} + \sin(\theta)(\vec{k} \times \vec{v}) \]
+</h3>
+</div>
+
+<p>
+  Fill in the method <code>rodriguesRot</code> in <code>anglefunctions.js</code> to implement this, using functions in the glMatrix library.  To test it, input an axis, angle, and vector in the menu to the right, and click <b>doRotation</b>.  The results will be displayed in plotly
+</p>
+
+<div id = "angleViz"></div>
+
+<script>
+  let gui = new RotGUI(rodriguesRot);
+</script>
+
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</body>
+</html>

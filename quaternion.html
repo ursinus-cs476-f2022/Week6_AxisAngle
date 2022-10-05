@@ -1,0 +1,62 @@
+<!--Programmer: Chris Tralie!-->
+<!--Purpose: Front end point chooser / debugger for angle function!-->
+<html>
+<head>
+  <meta charset=utf-8></meta>
+  <script src = "gl-matrix-min.js"></script>
+  <script src = "plotly.min.js"></script>
+  <script src = "dat.gui.min.js"></script>
+  <script src = "geomprimitives.js"></script>
+  <script src = "guitools.js"></script>
+  <script src = "anglefunctions.js"></script>
+  
+</head>
+<body>
+
+<h2><a name = "angle">Quaternion Rotation Formula</a></h2>
+<h3>by Chris Tralie</h3>
+
+<P>
+  Recall that to rotate a vector <b>v = (x, y, z)</b> around a unit axis <b>k = (a, b, c)</b> by an angle of <b>&theta;</b>, one constructs the quaternions
+</P>
+
+<div style="width:400px;">
+<h3>
+  \[ q = e^{\frac{\theta}{2}(ai + bj + ck)} = \cos\left(\frac{\theta}{2}\right) + ia \sin\left(\frac{\theta}{2}\right) + jb \left(\sin\frac{\theta}{2}\right) + kc \sin\left(\frac{\theta}{2}\right)\]
+</h3>
+<p>
+  and then
+</p>
+<h3>
+  \[ p = xi + yj + zk \]
+</h3>
+
+<p>
+  then the components of the multiplication 
+</p>
+
+<h3>
+  \[ q p q^{-1} \]
+</h3>
+
+<p>
+  Give the results of the rotation
+</p>
+
+</div>
+
+<p>
+  Fill in the method <code>quaternionRot</code> in <code>anglefunctions.js</code> to implement this, <b>using only the <code>fromValues</code> and <code>multiply</code> methods</b> in the <a href = "https://glmatrix.net/docs/module-quat.html">quat</a> library in glMatrix.  To test it, input an axis, angle, and vector in the menu to the right, and click <b>doRotation</b>.  The results will be displayed in plotly
+</p>
+
+<div id = "angleViz"></div>
+
+<script>
+  let gui = new RotGUI(quaternionRot);
+</script>
+
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</body>
+</html>
